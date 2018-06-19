@@ -4,12 +4,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-// webpack html imports
-let template = require('./typeahead-demo.component.html');
 
 @Component({
   selector: 'typeahead-demo',
-  template: template
+  templateUrl: './typeahead-demo.component.html'
 })
 export class TypeaheadDemoComponent {
   public stateCtrl:FormControl = new FormControl();

@@ -6,12 +6,9 @@ interface Box {
 	config: NgGridItemConfig;
 }
 
-// webpack html imports
-let template = require('./grid-demo.component.html');
-
 @Component({
     selector: 'my-app',
-    template: template,
+  templateUrl: './grid-demo.component.html',
      styleUrls: ['./grid-demo.component.css']
 })
 export class GridDemoComponent {
@@ -46,7 +43,7 @@ private boxes: Array<Box> = [];
 	};
 	private curItemCheck: number = 0;
 	private itemPositions: Array<any> = [];
-	
+
 	constructor() {
 		for (var i = 0; i < 4; i++) {
 			const conf = this._generateDefaultItemConfig();
@@ -54,54 +51,54 @@ private boxes: Array<Box> = [];
 			this.boxes[i] = { id: i + 1, config: conf };
 		}
 	}
-	
+
 	get ratioDisabled(): boolean {
 		return (this.gridConfig.max_rows > 0 && this.gridConfig.visible_cols > 0) ||
 			(this.gridConfig.max_cols > 0 && this.gridConfig.visible_rows > 0) ||
 			(this.gridConfig.visible_cols > 0 && this.gridConfig.visible_rows > 0);
 	}
-	
+
 	get itemCheck(): number {
 		return this.curItemCheck;
 	}
-	
+
 	set itemCheck(v: number) {
 		console.log(v);
 		this.curItemCheck = v;
 	}
-	
+
 	get curItem(): NgGridItemConfig {
 		return this.boxes[this.curItemCheck] ? this.boxes[this.curItemCheck].config : {};
 	}
-	
+
 	addBox(): void {
 		const conf: NgGridItemConfig = this._generateDefaultItemConfig();
 		conf.payload = this.curNum++;
 		this.boxes.push({ id: conf.payload, config: conf });
 	}
-	
+
 	removeBox(): void {
 		if (this.boxes[this.curItemCheck]) {
 			this.boxes.splice(this.curItemCheck, 1);
 		}
 	}
-	
+
 	updateItem(index: number, event: NgGridItemEvent): void {
 		// Do something here
 	}
-	
+
 	onDrag(index: number, event: NgGridItemEvent): void {
 		// Do something here
 	}
-	
+
 	onResize(index: number, event: NgGridItemEvent): void {
 		// Do something here
 	}
-	
+
 	private _generateDefaultItemConfig(): NgGridItemConfig {
 		return { 'dragHandle': '.handle', 'col': 1, 'row': 1, 'sizex': 1, 'sizey': 1 };
 	}
-	
+
 	private _randomise(): void {
 		for (var x in this.boxes) {
 			this.boxes[x].config.col = Math.floor(Math.random() * 6) + 1;
