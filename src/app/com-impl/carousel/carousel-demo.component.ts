@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-// webpack html imports
-
-
 @Component({
   selector: 'carousel-demo',
   templateUrl: './carousel-demo.component.html'

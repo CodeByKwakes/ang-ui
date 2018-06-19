@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-// webpack html imports
-
-
 @Component({
   selector: 'collapse-demo',
   templateUrl: './collapse-demo.component.html'

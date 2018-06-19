@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 //import { Ng2BootstrapConfig, Ng2BootstrapTheme } from '../../com/ng2-bootstrap-config';
 
 // switch bs3\bs4 templates
-// webpack html imports
 
   /*[Ng2BootstrapTheme.BS4]: require('./progressbar-demo-bs4.html')*/
 
